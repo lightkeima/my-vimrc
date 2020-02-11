@@ -1,6 +1,5 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
+filetype off                  
+" required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -8,23 +7,44 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim' 
 Plugin 'scrooloose/nerdtree'
+Plugin 'neoclide/coc.nvim' 
+Plugin 'kien/ctrlp.vim'
+Plugin 'Lokaltog/vim-powerline' 
+Plugin 'severin-lemaignan/vim-minimap'
+" Plugin 'junegunn/fzf'
+" Plugin 'junegunn/fzf.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'guns/xterm-color-table.vim'
+" Plugin 'vim-airline/vim-airline-themes'
+Plugin 'majutsushi/tagbar'
+Plugin 'dart-lang/dart-vim-plugin'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'vhdirk/vim-cmake'
+Plugin 'prabirshrestha/async.vim'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'chrisbra/Colorizer'
+Plugin 'arcticicestudio/nord-vim'
+Plugin 'chriskempson/base16-vim'
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'mhinz/vim-startify'
+" Plugin 'OmniSharp/omnisharp-vim'
+
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
-Plugin 'mattn/emmet-vim'
 Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
-Plugin 'file:///home/gmarik/path/to/plugin'
+" Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'ap/vim-css-color'
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
@@ -43,18 +63,31 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-
-
-set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
-" Always show statusline
-set laststatus=2
-" Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
+:set t_ut=""
+set termguicolors
+syntax enable 
+:set nu
+" set background=dark
+"clorscheme nord
+colorscheme mitormk-laser
+" ~/.vim/colors/mitormk-laser
 
+set laststatus=2
+" let g:minimap_highlight='Visual'
 execute pathogen#infect()
+" let g:OmniSharp_server_use_mono = 1
+" set rtp+=~/.fzf'
+let g:airline_theme='light'
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+":let g:airline_symbols.branch = ''
+"let g:airline_symbols.readonly = ''
+"let g:airline_symbols.linenr = '☰'
+"let g:airline_symbols.maxlinenr = ''
+"let g:airline_symbols.dirty='⚡'
+let g:airline#extensions#tabline#enabled = 1
 call pathogen#helptags()
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-:map <C-t> :NERDTreeToggle <CR>
-:map <C-n> :tabnew <CR>
-:map <C-Right> :tabnext <CR>
-:map <C-Left> :tabprevious <CR>
+hi Normal guibg=NONE ctermbg=NONE
